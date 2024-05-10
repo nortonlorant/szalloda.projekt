@@ -17,7 +17,7 @@ class EgyagyasSzoba(Szoba):
         self.kenyelmi_fok = kenyelmi_fok
 
     def leiras(self):
-        return f"Egyágyas szoba {self.szobaszam} számmal, {self.kenyelmi_fok} kényelemmel."
+        return f"Egyágyas szoba {self.szobaszam} számmal, {self.kenyelmi_fok} kényelemmel"
 
 class KetagyasSzoba(Szoba):
     def __init__(self, ar, szobaszam, erkely):
@@ -25,7 +25,7 @@ class KetagyasSzoba(Szoba):
         self.erkely = erkely
 
     def leiras(self):
-        return f"Kétágyas szoba {self.szobaszam} számmal, erkéllyel: {self.erkely}."
+        return f"Kétágyas szoba {self.szobaszam} számmal, erkéllyel {self.erkely}"
 
 class Szalloda:
     def __init__(self, nev):
@@ -64,15 +64,19 @@ class Foglalas:
         self.szoba = szoba
         self.datum = datum
 
-# Felhasználói Interfész Példa
+
 def main():
     szalloda = Szalloda("Példa Szálloda")
     szoba1 = EgyagyasSzoba(200000, 101, kenyelmi_fok="Elit")
     szoba2 = KetagyasSzoba(150000, 102, erkely=True)
     szoba3 = EgyagyasSzoba(100000, 103, kenyelmi_fok="Standard")
+    szoba4 = KetagyasSzoba(ar=175000, szobaszam=104, erkely=True)
+    szoba5 = EgyagyasSzoba(ar=125000, szobaszam=105, kenyelmi_fok="Standard")
     szalloda.add_szoba(szoba1)
     szalloda.add_szoba(szoba2)
     szalloda.add_szoba(szoba3)
+    szalloda.add_szoba(szoba4)
+    szalloda.add_szoba(szoba5)
 
     while True:
         print("\n1. Foglalás")
